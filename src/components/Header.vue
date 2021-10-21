@@ -11,24 +11,56 @@
             <a href="#" title="Курсы" :class="{ active: isActive }">Курсы</a>
           </li>
           <li class="menu__list-item">
-            <a href="#" title="Курсы">Тестирования</a>
+            <a href="#" title="Тестирования">Тестирования</a>
           </li>
           <li class="menu__list-item">
-            <a href="#" title="Курсы">События</a>
+            <a href="#" title="События">События</a>
           </li>
           <li class="menu__list-item">
-            <a href="#" title="Курсы" :class="{ disable: isLinkDisabled }">База знаний</a>
+            <a href="#" title="База знаний" :class="{ disable: isLinkDisabled }">База знаний</a>
           </li>
           <li class="menu__list-item">
-            <a href="#" title="Курсы" :class="{ disable: isLinkDisabled }">Пользователи</a>
+            <a href="#" title="Пользователи" :class="{ disable: isLinkDisabled }">Пользователи</a>
           </li>
           <li class="menu__list-item">
-            <a href="#" title="Курсы" :class="{ disable: isLinkDisabled }">Отчеты</a>
+            <a href="#" title="Отчеты" :class="{ disable: isLinkDisabled }">Отчеты</a>
           </li>
         </ul>
       </nav>
 
-      <Drawer />
+      <el-dropdown trigger="click" class="mobile-menu">
+        <span class="el-dropdown-link">
+          Меню <i class="el-icon-arrow-down el-icon--right"></i>
+        </span>
+
+        <template #dropdown class="mobile-menu__list">
+          <el-dropdown-menu>
+            <el-dropdown-item>
+              <a href="#" title="link">Курсы</a>
+            </el-dropdown-item>
+
+            <el-dropdown-item>
+              <a href="#" title="link" >Тестирования</a>
+            </el-dropdown-item>
+
+            <el-dropdown-item>
+              <a href="#" title="link" >События</a>
+            </el-dropdown-item>
+
+            <el-dropdown-item disabled>
+              <a href="#" title="link" >База знаний</a>
+            </el-dropdown-item>
+
+            <el-dropdown-item disabled>
+              <a href="#" title="link" >Пользователи</a>
+            </el-dropdown-item>
+
+            <el-dropdown-item disabled>
+              <a href="#" title="link" >Отчеты</a>
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
 
       <div class="account">
         <div class="account__img">
@@ -45,12 +77,8 @@
 </template>
 
 <script>
-import Drawer from "@/elements/Drawer";
 export default {
   name: "Header",
-  components: {
-    Drawer,
-  },
   data() {
     return {
       isActive: true,
@@ -181,10 +209,36 @@ export default {
     }
   }
 
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: 992px) {
 
     .menu {
       display: none;
+    }
+  }
+
+  @media only screen and (max-width: 576px) {
+    padding: 8px;
+
+    .logo {
+      max-width: 100px;
+      margin-right: 8px;
+    }
+
+    .account {
+
+      &__img {
+        width: 20px;
+        height: 20px;
+        margin-right: 4px;
+      }
+
+      &__title {
+        font-size: 10px;
+      }
+
+      &__desc {
+        font-size: 8px;
+      }
     }
   }
 }

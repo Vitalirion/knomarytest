@@ -95,3 +95,68 @@ body {
   font-weight: 600;
   line-height: 1.22;
 }
+
+.mobile-menu {
+  display: none;
+
+  .el-dropdown-link {
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: $mainColor;
+    transition: color .4s;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  @media only screen and (max-width: 992px) {
+    display: inline-block;
+  }
+
+  @media only screen and (max-width: 576px) {
+
+    .el-dropdown-link {
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+}
+
+.el-dropdown__popper {
+
+  .el-dropdown-menu {
+    padding: 0;
+
+    &__item {
+      border-bottom: 1px solid $gray;
+
+      a {
+        color: $mainColor;
+        text-decoration: none;
+        transition: color .4s;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+
+        a {
+          color: $accent;
+        }
+      }
+
+      &.is-disabled {
+        pointer-events: none;
+
+        a {
+          opacity: .5;
+        }
+      }
+    }
+  }
+}
