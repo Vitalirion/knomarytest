@@ -28,6 +28,8 @@
         </ul>
       </nav>
 
+      <Drawer />
+
       <div class="account">
         <div class="account__img">
           <img src="@/assets/images/avatar.png" class="img-responsive img-responsive--cover" alt="Avatar">
@@ -43,14 +45,18 @@
 </template>
 
 <script>
+import Drawer from "@/elements/Drawer";
 export default {
   name: "Header",
+  components: {
+    Drawer,
+  },
   data() {
     return {
       isActive: true,
       isLinkDisabled: true,
     }
-  }
+  },
 }
 </script>
 
@@ -155,6 +161,30 @@ export default {
       font-size: 12px;
       line-height: 1.5;
       color: $accent;
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+
+    .logo {
+      margin-right: 24px;
+    }
+
+    .menu {
+
+      &__list {
+
+        &-item {
+          margin-right: 16px;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+
+    .menu {
+      display: none;
     }
   }
 }
